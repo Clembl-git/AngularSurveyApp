@@ -1,0 +1,36 @@
+<div class="container" ng-controller="CreationController" >
+      <div class=" centerDiv " style="visibility: visible;">
+        <h1 class="mainTitle"></h1>
+      </div>
+      <div class="list card mainForm listCtrl">
+      <div class="list ">
+        <label class="item item-input item-stacked-label">
+          <span class="input-label titreSondage">Titre du sondage</span>
+          <input type="text" placeholder="Barbecue entre amis !">
+        </label>
+        <ion-radio ng-model="choice" class="radioType" ng-value="1">Sondage</ion-radio>
+        <ion-radio ng-model="choice" class="radioType" ng-value="2">Rendez-vous</ion-radio>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Description</span>
+            <input placeholder="Je vous invite à nous rejoindre ce vendredi...."></input>
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Nom</span>
+          <input type="text" placeholder="John Doe">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Email</span>
+          <input type="text" placeholder="john_d@gmail.com">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <ion-checkbox class="cbCreation" ng-model="filter.blue">Envoi email à chaque réponse</ion-checkbox>
+          <ion-checkbox class="cbCreation" ng-model="filter.yellow">Seul le créateur peut voir les résultats</ion-checkbox>
+          <ion-checkbox class="cbCreation" ng-model="filter.pink">Seul le votant peut modifier la réponse</ion-checkbox>
+        </label>
+      </div>
+    </div>
+    <button class="button button-positive btnCreateCenter " ng-click="createForm()">
+      Create <i class="icon ion-checkmark-round icon-accessory"></i>
+    </button>
+
+</div>

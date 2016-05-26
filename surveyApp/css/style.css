@@ -1,0 +1,315 @@
+.container, button{
+    -webkit-transition: all .2s ease-in;
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+}
+
+.largeIcon {
+    font-size: 45px;
+    margin-top: -5%;
+  }
+
+.headerIcon {
+    position: absolute;
+    float: right;
+    font-size: 45px;
+    right: 0;
+}
+
+.spinner svg {
+  width: 100px;
+  height: 100px;
+  stroke: #387EF5;
+  position: relative;
+  left: 50%;
+  margin-left: -50px;
+}
+ .mainTitle{
+  font-size: 46px;
+  margin: 20px 10px 15px ;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
+  letter-spacing: 6px;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+ }
+ .underTitle {
+  width: 80%;
+  text-align: center;
+  padding-top: 0%;
+  font-size: large;
+  left: 10%;
+  margin-left: 10%;
+  color: #fff;
+  margin-right: 10%;
+ }
+ .bgMainImage{
+   background-image: url('../img/walp.jpg');
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-position: center;
+ }
+ .mainForm .list label{
+ }
+.input-label{
+  padding-left: 4%;
+}
+.bannerText {
+    top: 15%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.2);
+    zoom: 1;
+    height: 5%;
+}
+.centerDiv{
+    width: 100%;
+    left: 10%;
+    color: #fff;
+    right: 10%;
+    margin-top: 8%;
+}
+.mainForm{
+  display: inline-block;
+  width: 90%;
+  left: 5%;
+  padding: 0;
+  margin-top: 9%;
+  margin-left: 0;
+}
+
+.createBtn{
+  width: 44%;
+  left: 28%;
+  right: 28%;
+  position: absolute;
+}
+.addChoice{
+    position: absolute;
+    height: 47px;
+    width: 48px;
+    right: 17%;
+}
+.removeChoice{
+  position: absolute;
+  height: 47px;
+  width: 48px;
+  left: 17%;
+}
+.item-radio .radio-icon{
+  padding: 0;
+}
+.titreSondage{
+   text-transform:uppercase;
+   width: 100% ;
+   max-width: 100% ;
+}
+input, textarea, span{
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0 ;
+    width: 100%;
+    font-family: 'Josefin Sans', sans-serif;
+      font-size: 20px ;
+}
+.menu .item{
+  padding: 16px;
+}
+.item-input {
+  text-align: center;
+  border-bottom: 4px solid #DDDDDD;
+}
+.input-label{
+  font-size: 27px;
+}
+.checkbox-icon{
+    float: right;
+}
+.item-checkbox{
+    height: 40px ;
+    padding: 0 ;
+}
+.radioType{
+    width: 50%;
+    float: left;
+    height: 32px;
+}
+.radioType div{
+  margin-top:3px;
+}
+.item .item-content{
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+.btnCreateSurvey, .btnAccessSurvey{
+  background-color: #F4F4F4;
+  border: 1px solid rgba(255, 255, 255, 0.59) ;
+  padding: 6px;
+  font-family: 'Helvetica Neue', Helvetica, Arial;
+  text-transform: uppercase;
+  margin-top: 5px ;
+  font-size: 20px;
+  font-weight: 500;
+  width: 45% ;
+  height: 20%;
+  background: #233B55 ;
+  color: #fff;
+  position: absolute;
+    line-height: 34px;
+}
+
+button:hover{
+  letter-spacing: 2px;
+  border: 5px solid rgba(255,255,255, 0.5);
+}
+
+
+.btnCreateSurvey {
+
+  left: 4%;
+  float: left;
+}
+.btnCreateCenter{
+  width: 70%;
+  right: 15%;
+  left: 15%;
+    margin-top: -15px;
+}
+.btnCreateCenter i{
+  float:right;
+}
+.btnAccessSurvey {
+  float: right;
+  right: 4%;
+}
+.btnContainer{
+  margin-top: 15%;
+}
+.menuSubText{
+  font-size: 50px;
+}
+.listInput{
+  margin-top:5%;
+  margin-bottom: 10px;
+}
+.listInput a {
+    margin-top: 0%;
+    margin-bottom: 0%;
+    padding: 0% 8%;
+    border: 1px solid #8AC;
+    width: 80%;
+    left: 10%;
+    right: 10%;
+}
+.listInput a h2{
+  font-family: 'Josefin Sans', sans-serif;
+    font-size: 27px ;
+    font-weight: bold;
+    width: 100%;
+    height: 34px;
+    text-align: center;
+}
+.header-text{
+
+}
+.listInput input{
+    border: 0;
+    height: 65px;
+    padding: 0;
+    margin: 0;
+    line-height: normal;
+    height: 100%;
+    font-size: 24px;
+}
+.cbCreation span{
+  margin-top: 6px;
+  position: absolute;
+  left: 0;
+  margin-left: -19px;
+}
+
+  .menuSubText{
+    font-size: 30px;
+    color: #fff;
+    font-weight: 400;
+    padding: 5px;
+    top: 40px;
+  }
+   .bar .title {
+     font-size: 41px ;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 500;
+    letter-spacing: 11px;
+    width: 100%;
+    text-align: center ;
+    color: #727272 ;
+    left: 16px ;
+    right: 0 ;
+    top: -2px;
+   }
+   .underTitle {
+      width: 80%;
+      text-align: center;
+      padding-top: 0%;
+      font-size: large;
+      left: 10%;
+      margin-left: 10%;
+      margin-right: 10%;
+   }
+   .input-label {
+    font-size: 20px;
+  }
+  .mainForm{
+    display: inline-block;
+    width: 100%;
+    padding: 0;
+    margin-left:-5%;
+    margin-top: -1%;
+  }
+  input, textarea, span {
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0 ;
+    width: 100%;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 17px;
+}
+
+@media only screen and  (min-device-width :1000px)  {
+  .mainTitle {
+      font-size: 74px;
+      margin: 20px 10px 15px ;
+      text-transform: uppercase;
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 700;
+      letter-spacing: 12px;
+      width: 100%;
+      text-align: center;
+}
+
+/* latin-ext */
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Josefin Sans Light'), local('JosefinSans-Light'), url(https://fonts.gstatic.com/s/josefinsans/v9/C6HYlRF50SGJq1XyXj04zxLwFvNxpkIoVzlXSkPSYkA.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Josefin Sans Light'), local('JosefinSans-Light'), url(https://fonts.gstatic.com/s/josefinsans/v9/C6HYlRF50SGJq1XyXj04z04GofcKVZz6wtzX_QUIqsI.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Josefin Sans'), local('JosefinSans'), url(https://fonts.gstatic.com/s/josefinsans/v9/xgzbb53t8j-Mo-vYa23n5j0LW-43aMEzIO6XUTLjad8.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}

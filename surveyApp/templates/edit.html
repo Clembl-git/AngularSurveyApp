@@ -1,0 +1,18 @@
+<div class="container" ng-controller="EditController">
+      <div class="bannerText centerDiv " style="visibility: visible;">
+        <h1 class="mainTitle">SurveyApp</h1>
+        <h2 class="underTitle">Personnalisation des réponses visibles sur votre sondage :</h2>
+      </div>
+    <div class="listInput">
+    <a class="item item-thumbnail-left" href="#" ng-repeat="(key,input) in listControl">
+      <h2>Choix {{key + 1}} : {{input.title}} </h2>
+      <input type="textarea" class="" name="input{{key}}"  placeholder="Saisissez votre choix" ng-if="typeSurvey == 1">
+      <input type="date" class="" name="input{{key}}" ng-if="typeSurvey == 2" style="margin-left:26px;">
+    </a>
+    </div>
+    <button type="button" name="button" ng-click="addChoice()"class="button button-positive ion-plus-round addChoice"></button>
+    <button class="button button-positive  createBtn" ng-click="creationLastStep()">
+      Create
+    </button>
+    <button type="button"ng-click="removeChoice()"class="button button-positive ion-minus-round removeChoice" name="button"></button>
+</div>
