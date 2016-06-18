@@ -37,28 +37,53 @@ angular.module('controllers',['chart.js','ngRoute'])
 })
 
 
-.controller('CreationController', function ($scope, $http,SurveyManager,$location) {
+.controller('CreationController', function ($scope, $http, $filter, $location, SurveyManager) {
   console.log("CreationController Called");
-  console.log($location.path());
-  $scope.createForm = function() {
-    SurveyManager.setType(this.choice);
-  };
-
-})
-
-.controller('EditController', function ($scope, $http,  SurveyManager) {
-  console.log("EditController Called");
-  console.log($location.path());
-  var nbListItem = 0;
+  var survey = {};
+  var choices = {};
+  var postObj = {};
   $scope.typeSurvey = SurveyManager.getType();
-
   console.log($scope.typeSurvey);
 
+
+  $scope.creationSuite = function() {
+
+    var dateExp = new Date($scope.inputDateExpiration);
+    var month = dateExp.getMonth() + 1;
+
+    var strDate = dateExp.getDate() + "/" + month + "/" + dateExp.getFullYear();
+
+    survey.suTitle                 = $scope.inputTitle;
+    survey.suDescription           = $scope.inputDescription;
+    survey.suSurveytype            = $scope.inputTypeSurvey;
+
+    survey.suExpirationdate        = strDate;
+    survey.suIsvoteEditable        = $scope.bVoteEditable;
+    survey.suEmailoncomment        = $scope.bEmailOnReponse;
+    survey.suIsresultpublic        = $scope.bResultPublic;
+    survey.suEmailonparticipation  = $scope.bEmailOnParticipe;
+
+    SurveyManager.setType($scope.inputTypeSurvey);
+
+    $scope.typeSurvey =   survey.suSurveytype;
+    $location.path('/creationSuite');
+
+  };
+
+  $scope.saveSurveyChoice = function() {
+    var nbListItem = 0;
+
+
+
+
+
+  };
   $scope.listControl = [];
-  $scope.listControl.push({title:"",text:"Mardi?"});
-  $scope.listControl.push({title:"",text:"Jeudi?"});
-  $scope.listControl.push({title:"",text:"Mercredi?"});
-  nbListItem = 3;
+
+      $scope.listControl.push({title:"",text:"Mardi?"});
+      $scope.listControl.push({title:"",text:"Jeudi?"});
+      $scope.listControl.push({title:"",text:"Mercredi?"});
+          nbListItem = 3;
 
   $scope.addChoice = function() {
     $scope.listControl.push({title:'',text:"Saisissez l'option"+nbListItem});
@@ -66,17 +91,16 @@ angular.module('controllers',['chart.js','ngRoute'])
   };
   $scope.removeChoice = function() {
     $scope.listControl.pop(nbListItem);
-    nbListItem--;
+    nbListItem++;
   };
 
-  $scope.creationLastStep = function () {
-    for( var i = 0 ; i < nbListItem ; i++ ) {
-
+  $scope.creationLastStep = function() {
+    for( var i = 0 ; i < $scope.listControl.length ; i++ ) {
+      console.log("test");
     }
-  };
-//  $location.path('/result');
-
+}
 })
+
 
 .controller('ResultatCtrl', function($scope, $stateParams) {
   console.log("ResultatCtrl Called");

@@ -13,8 +13,8 @@ var SSurvey = angular.module('SSurvey', [
 
 SSurvey.config(['$routeProvider', function($routeProvider, $http, $location) {
   $routeProvider
-    .when('/edit', {
-        templateUrl: 'templates/edit.html'
+    .when('/creationSuite', {
+        templateUrl: 'templates/creationSuite.html'
       })
     .when('/home', {
         templateUrl: 'templates/home.html'
@@ -32,7 +32,7 @@ SSurvey.config(['$routeProvider', function($routeProvider, $http, $location) {
 SSurvey.factory('SurveyManager', function() {
    return {
      survey:{
-       type: null,
+       type: 1,
        titre: "",
        description:"",
        userName: "",

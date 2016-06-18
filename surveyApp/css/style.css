@@ -1,33 +1,23 @@
-.container, button{
-    -webkit-transition: all .2s ease-in;
-    -moz-transition: all .2s ease-in;
-    -o-transition: all .2s ease-in;
-    transition: all .2s ease-in;
+body{
+  width: 100%;
+  height: 100%;
 }
-
-.largeIcon {
-    font-size: 45px;
-    margin-top: -5%;
-  }
-
-.headerIcon {
-    position: absolute;
-    float: right;
-    font-size: 45px;
-    right: 0;
-}
-
-.spinner svg {
-  width: 100px;
-  height: 100px;
-  stroke: #387EF5;
+.container{
+  width: 80%;
+  margin: 0 auto;
+  color: #fff;
+  margin-top: 8%;
   position: relative;
-  left: 50%;
-  margin-left: -50px;
 }
+.bgMainImage{
+  background-image: url('../img/walp.jpg');
+   background-repeat: repeat;
+   background-attachment: fixed;
+   background-position: center;
+}
+
  .mainTitle{
-  font-size: 46px;
-  margin: 20px 10px 15px ;
+  font-size: 50px;
   font-family: 'Josefin Sans', sans-serif;
   font-weight: 700;
   letter-spacing: 6px;
@@ -45,17 +35,6 @@
   color: #fff;
   margin-right: 10%;
  }
- .bgMainImage{
-   background-image: url('../img/walp.jpg');
-    background-repeat: repeat;
-    background-attachment: fixed;
-    background-position: center;
- }
- .mainForm .list label{
- }
-.input-label{
-  padding-left: 4%;
-}
 .bannerText {
     top: 15%;
     text-align: center;
@@ -63,12 +42,8 @@
     zoom: 1;
     height: 5%;
 }
-.centerDiv{
-    width: 100%;
-    left: 10%;
-    color: #fff;
-    right: 10%;
-    margin-top: 8%;
+.createLabel{
+  font-size: 20px;
 }
 .mainForm{
   display: inline-block;
@@ -97,51 +72,24 @@
   width: 48px;
   left: 17%;
 }
-.item-radio .radio-icon{
-  padding: 0;
-}
 .titreSondage{
    text-transform:uppercase;
    width: 100% ;
    max-width: 100% ;
 }
-input, textarea, span{
-    text-align: center;
-    padding-left: 0;
-    padding-right: 0 ;
-    width: 100%;
-    font-family: 'Josefin Sans', sans-serif;
-      font-size: 20px ;
-}
 .menu .item{
   padding: 16px;
 }
-.item-input {
-  text-align: center;
-  border-bottom: 4px solid #DDDDDD;
-}
 .input-label{
   font-size: 27px;
-}
-.checkbox-icon{
-    float: right;
-}
-.item-checkbox{
-    height: 40px ;
-    padding: 0 ;
-}
-.radioType{
-    width: 50%;
-    float: left;
-    height: 32px;
-}
-.radioType div{
-  margin-top:3px;
 }
 .item .item-content{
   text-align: center;
   padding: 0;
   margin: 0;
+}
+.creationInput{
+  font-size: 20px !important;
 }
 .btnCreateSurvey, .btnAccessSurvey{
   background-color: #F4F4F4;
@@ -211,25 +159,6 @@ button:hover{
     height: 34px;
     text-align: center;
 }
-.header-text{
-
-}
-.listInput input{
-    border: 0;
-    height: 65px;
-    padding: 0;
-    margin: 0;
-    line-height: normal;
-    height: 100%;
-    font-size: 24px;
-}
-.cbCreation span{
-  margin-top: 6px;
-  position: absolute;
-  left: 0;
-  margin-left: -19px;
-}
-
   .menuSubText{
     font-size: 30px;
     color: #fff;
@@ -258,9 +187,6 @@ button:hover{
       margin-left: 10%;
       margin-right: 10%;
    }
-   .input-label {
-    font-size: 20px;
-  }
   .mainForm{
     display: inline-block;
     width: 100%;
@@ -268,26 +194,6 @@ button:hover{
     margin-left:-5%;
     margin-top: -1%;
   }
-  input, textarea, span {
-    text-align: center;
-    padding-left: 0;
-    padding-right: 0 ;
-    width: 100%;
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 17px;
-}
-
-@media only screen and  (min-device-width :1000px)  {
-  .mainTitle {
-      font-size: 74px;
-      margin: 20px 10px 15px ;
-      text-transform: uppercase;
-      font-family: 'Josefin Sans', sans-serif;
-      font-weight: 700;
-      letter-spacing: 12px;
-      width: 100%;
-      text-align: center;
-}
 
 /* latin-ext */
 @font-face {
