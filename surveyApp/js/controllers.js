@@ -1,7 +1,7 @@
 angular.module('controllers',['chart.js','ngRoute'])
 
 
-.controller('AppCtrl', function($scope, $timeout, $q, AuthService, DBCall) {
+.controller('AppCtrl', function($scope, $timeout, $q, AuthService, Get) {
 
     console.log("AppCtrl Called");
   // With the new view caching in Ionic, Controllers are only called
@@ -27,7 +27,7 @@ angular.module('controllers',['chart.js','ngRoute'])
        $location.path("/creation");
     };
 })
-.controller('MenuCtrl', function($scope, AuthService, $http, DBCall) {
+.controller('MenuCtrl', function($scope, AuthService, $http, Get) {
   console.log("MenuCTRL Called");
   console.log($location.path());
 //   DBCall.getInfosAgence().then(function(response) {
@@ -37,53 +37,42 @@ angular.module('controllers',['chart.js','ngRoute'])
 })
 
 
-.controller('CreationController', function ($scope, $http, $filter, $location, SurveyManager) {
+.controller('CreationController', function ($scope, $http, $filter, $location, SurveyManager, Get) {
   console.log("CreationController Called");
-  var survey = {};
-  var choices = {};
+  $scope.survey = {};
+  var choices = [];
   var postObj = {};
+  $scope.choiceList = {};
   $scope.typeSurvey = SurveyManager.getType();
   console.log($scope.typeSurvey);
-
+    $scope.listControl = [];
+    $scope.listControl.push({title:"",text:"Mardi?"});
+    $scope.listControl.push({title:"",text:"Jeudi?"});
+    $scope.listControl.push({title:"",text:"Mercredi?"});
+    nbListItem = 3;
 
   $scope.creationSuite = function() {
-
     var dateExp = new Date($scope.inputDateExpiration);
     var month = dateExp.getMonth() + 1;
-
     var strDate = dateExp.getDate() + "/" + month + "/" + dateExp.getFullYear();
+    $scope.survey.suTitle                 = $scope.inputTitle;
+    $scope.survey.suDescription           = $scope.inputDescription;
+    $scope.survey.suSurveytype            = "1";
 
-    survey.suTitle                 = $scope.inputTitle;
-    survey.suDescription           = $scope.inputDescription;
-    survey.suSurveytype            = $scope.inputTypeSurvey;
+    $scope.survey.suExpirationdate        = strDate;
+    $scope.survey.suIsvoteeditable        = "1"; //$scope.bVoteEditable;
+    $scope.survey.suEmailoncomment        = "1";// $scope.bEmailOnReponse;
+    $scope.survey.suIsresultpublic        = "1";// $scope.bResultPublic;
+    $scope.survey.suEmailonparticipation  = "1";// $scope.bEmailOnParticipe;
+    $scope.survey.usIduser = '1';
+    SurveyManager.setSurvey($scope.survey);
 
-    survey.suExpirationdate        = strDate;
-    survey.suIsvoteEditable        = $scope.bVoteEditable;
-    survey.suEmailoncomment        = $scope.bEmailOnReponse;
-    survey.suIsresultpublic        = $scope.bResultPublic;
-    survey.suEmailonparticipation  = $scope.bEmailOnParticipe;
-
-    SurveyManager.setType($scope.inputTypeSurvey);
-
-    $scope.typeSurvey =   survey.suSurveytype;
+    console.log($scope.survey);
+    $scope.typeSurvey =   $scope.survey.suSurveytype;
     $location.path('/creationSuite');
 
   };
 
-  $scope.saveSurveyChoice = function() {
-    var nbListItem = 0;
-
-
-
-
-
-  };
-  $scope.listControl = [];
-
-      $scope.listControl.push({title:"",text:"Mardi?"});
-      $scope.listControl.push({title:"",text:"Jeudi?"});
-      $scope.listControl.push({title:"",text:"Mercredi?"});
-          nbListItem = 3;
 
   $scope.addChoice = function() {
     $scope.listControl.push({title:'',text:"Saisissez l'option"+nbListItem});
@@ -91,16 +80,35 @@ angular.module('controllers',['chart.js','ngRoute'])
   };
   $scope.removeChoice = function() {
     $scope.listControl.pop(nbListItem);
-    nbListItem++;
+    nbListItem--;
   };
 
   $scope.creationLastStep = function() {
-    for( var i = 0 ; i < $scope.listControl.length ; i++ ) {
-      console.log("test");
-    }
-}
-})
 
+      var jsonObj = {};
+      // jquery sucks
+      var listChoice = document.getElementsByClassName("itemChoice");
+
+      angular.forEach(listChoice, function(input, key) {
+        if(input.value != '')
+          choices[i].chTitle = input.value;
+      });
+
+
+      jsonObj.survey = SurveyManager.getSurvey();
+      jsonObj.user = {};
+      jsonObj.user.usName = "Clément";
+      jsonObj.user.usEmail = "clement.mab@gmail.com";
+      // if(choices.length > 0)
+      //   survey.choiceList = choices;
+      console.log(jsonObj);
+      jsonObj = JSON.stringify(jsonObj);
+      console.log(jsonObj);
+      Get.createSurvey(jsonObj).then(function(resp) {
+        console.log(resp);
+      })
+  }
+})
 
 .controller('ResultatCtrl', function($scope, $stateParams) {
   console.log("ResultatCtrl Called");

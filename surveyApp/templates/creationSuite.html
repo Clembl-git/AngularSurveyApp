@@ -1,13 +1,14 @@
-<div class="container" ng-controller="CreationController">
+<div class="container creationSuite" ng-controller="CreationController">
       <div class="bannerText centerDiv " style="visibility: visible;">
         <h1 class="mainTitle">SurveyApp</h1>
         <h2 class="underTitle">Personnalisation des réponses visibles sur votre sondage :</h2>
       </div>
     <div class="listInput">
-    <div class="item " ng-repeat="(key,input) in listControl">
+    <center style="margin-bottom:40px;">
+    <div class="item  " ng-repeat="(key,input) in listControl">
       <h2>Choix {{key + 1}} : {{input.title}} </h2>
-      <input type="textarea" class="" name="input{{key}}"  placeholder="Saisissez votre choix" ng-if="typeSurvey == 1">
-      <input type="date" class="" name="input{{key}}" ng-if="typeSurvey == 2" style="margin-left:26px;">
+      <input type="textarea" class="itemChoice" name="input{{key}}"  placeholder="Saisissez votre choix" ng-if="typeSurvey == 1">
+      <input type="date" class="itemChoice" name="input{{key}}" ng-if="typeSurvey == 2"  >
     </div>
     </div>
     <button type="button" name="button" ng-click="addChoice()"class="button btn-primary ion-plus-round addChoice"></button>
@@ -15,4 +16,5 @@
       Create
     </button>
     <button type="button"ng-click="removeChoice()"class="button btn-primary ion-minus-round removeChoice" name="button"></button>
+  </center>
 </div>

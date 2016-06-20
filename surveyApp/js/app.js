@@ -9,7 +9,14 @@ var SSurvey = angular.module('SSurvey', [
 'controllers',
 'ngRoute'
 ]);
-
+SSurvey.config(['$httpProvider', function ($httpProvider) {
+  //Reset headers to avoid OPTIONS request (aka preflight)
+  delete $httpProvider.defaults.headers.common['X-Requested-With'];
+  $httpProvider.defaults.headers.common = {};
+  $httpProvider.defaults.headers.post = {};
+  $httpProvider.defaults.headers.put = {};
+  $httpProvider.defaults.headers.patch = {};
+}]);
 
 SSurvey.config(['$routeProvider', function($routeProvider, $http, $location) {
   $routeProvider
@@ -31,21 +38,23 @@ SSurvey.config(['$routeProvider', function($routeProvider, $http, $location) {
 
 SSurvey.factory('SurveyManager', function() {
    return {
+     data:{
+       survey: {}
+     },
      survey:{
-       type: 1,
-       titre: "",
-       description:"",
-       userName: "",
-       userEmail: "",
-       emailOnAnswer: false,
-       restrictedViewAccess: false,
-       restrictedVoteAccess: false
+       type: 1
      },
      setType: function(id){
        this.survey.type = id;
      },
      getType: function(){
        return this.survey.type;
+     },
+     setSurvey: function(survey){
+       this.data.survey = survey;
+     },
+     getSurvey: function(){
+       return this.data.survey;
      }
    }
  });
@@ -67,28 +76,15 @@ SSurvey.factory('AuthService', function() {
    };
  });
 
-SSurvey.factory('DBCall', function($http) {
+ SSurvey.factory('Get', function($http) {
    return {
-     data: {
-       list: {},
+     globalData: {
      },
-     getUserFromLogin: function(userlogin) {
-       return httpGetRequest($http, "getUserFromLogin/"+userlogin)
-     },
-     getInfosAgence: function() {
-       return httpGetRequest($http, "getInfosAgence");
-     },
-     getAllCollaborateur: function() {
-      // return httpGetRequest($http, "getAllCollaborateur");
-      return getAllCollaborateur2();
-     },
-     getPrevisionsByAgence: function(agenceId, dateD, dateF) {
-       return httpGetRequest($http, "getPrevisionsByAgence/"+agenceId);
-
+     createSurvey: function(survey){
+         return httpPostRequest($http, 'survey/create', survey);
      }
-   }
- });
-
+ }
+});
 
 SSurvey.filter('capitalize', function() {
      return function(input) {

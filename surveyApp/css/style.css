@@ -59,6 +59,7 @@ body{
   left: 28%;
   right: 28%;
   position: absolute;
+  height: 47px;
 }
 .addChoice{
     position: absolute;
@@ -107,7 +108,13 @@ body{
   position: absolute;
     line-height: 34px;
 }
-
+.creationSuite .itemChoice {
+    width: 500px;
+    height: 37px;
+    text-align: center;
+    color: black;
+    font-size: 21px;
+}
 button:hover{
   letter-spacing: 2px;
   border: 5px solid rgba(255,255,255, 0.5);
