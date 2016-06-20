@@ -1,24 +1,27 @@
 'use strict';
-// Ionic Starter App
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.controllers' is found in controllers.js
-var SSurvey = angular.module('SSurvey', [
+var surveyApp = angular.module('surveyApp', [
 'controllers',
+'factory',
+'ngAnimate',
+'toastr',
+'chart.js',
+'ngDialog',
 'ngRoute'
 ]);
-SSurvey.config(['$httpProvider', function ($httpProvider) {
+
+angular.module('controllers', []);
+
+surveyApp.config(['$httpProvider', function ($httpProvider) {
   //Reset headers to avoid OPTIONS request (aka preflight)
   delete $httpProvider.defaults.headers.common['X-Requested-With'];
-  $httpProvider.defaults.headers.common = {};
-  $httpProvider.defaults.headers.post = {};
-  $httpProvider.defaults.headers.put = {};
-  $httpProvider.defaults.headers.patch = {};
-}]);
+  // $httpProvider.defaults.headers.common = {};
+  // $httpProvider.defaults.headers.post = {};
+  // $httpProvider.defaults.headers.put = {};
+  // $httpProvider.defaults.headers.patch = {};
+}])
 
-SSurvey.config(['$routeProvider', function($routeProvider, $http, $location) {
+.config(['$routeProvider', function($routeProvider, $http, $location) {
   $routeProvider
     .when('/creationSuite', {
         templateUrl: 'templates/creationSuite.html'
@@ -34,80 +37,3 @@ SSurvey.config(['$routeProvider', function($routeProvider, $http, $location) {
       })
     .otherwise({ redirectTo: '/home' });
 }]);
-
-
-SSurvey.factory('SurveyManager', function() {
-   return {
-     data:{
-       survey: {}
-     },
-     survey:{
-       type: 1
-     },
-     setType: function(id){
-       this.survey.type = id;
-     },
-     getType: function(){
-       return this.survey.type;
-     },
-     setSurvey: function(survey){
-       this.data.survey = survey;
-     },
-     getSurvey: function(){
-       return this.data.survey;
-     }
-   }
- });
-SSurvey.factory('AuthService', function() {
-   return {
-     userInfo:{
-       nom: "",
-       prenom: "",
-       idAgence: "",
-       logged: false
-     },
-     setLoggedUser: function(nom, prenom, idAgence) {
-      console.log(nom, prenom, idAgence);
-       this.userInfo.nom = firstToUpperCase(nom);
-       this.userInfo.prenom = firstToUpperCase(prenom);
-       this.userInfo.idAgence = idAgence;
-       this.userInfo.logged = true;
-     }
-   };
- });
-
- SSurvey.factory('Get', function($http) {
-   return {
-     globalData: {
-     },
-     createSurvey: function(survey){
-         return httpPostRequest($http, 'survey/create', survey);
-     }
- }
-});
-
-SSurvey.filter('capitalize', function() {
-     return function(input) {
-       return (!!input) ? firstToUpperCase(input) : '';
-     }
- })
-SSurvey.filter('firstLetterOnly', function() {
-     return function(input) {
-       return (!!input) ? input.charAt(0)+"." : '';
-     }
- })
-SSurvey.filter('libelleDay', function() {
-     return function(input) {
-       return (!!input) ? moment(input).format('dddd') : '';
-     }
- })
-SSurvey.filter('dayAndMonth', function() {
-     return function(input) {
-       return (!!input) ? moment(input).format('D, MMM') : '';
-     }
- })
-SSurvey.filter('dateOnly', function() {
-     return function(input) {
-       return (!!input) ? moment(input).format('DD/MM/YYYY') : '';
-     }
- });
