@@ -10,7 +10,7 @@ body{
   position: relative;
 }
 .bgMainImage{
-  background-image: url('../img/walp.jpg');
+  background-image: url('../img/background_flat.jpg');
    background-repeat: repeat;
    background-attachment: fixed;
    background-position: center;
