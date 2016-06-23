@@ -2,6 +2,8 @@ angular.module('controllers')
 .controller('CreationSuiteController', ['$rootScope','$scope','$http','$location','SurveyManager','Get',
  function ($rootScope, $scope, $http, $location, SurveyManager, Get) {
 
+  console.log($rootScope.typeSurvey);
+  
   $scope.listControl = [];
   $scope.listControl.push({title:"",text:"Mardi?"});
   nbListItem = 3;
@@ -20,21 +22,21 @@ angular.module('controllers')
 
       var jsonObj = {};
       // jquery sucks
+
       var listChoice = document.getElementsByClassName("itemChoice");
 
-      angular.forEach(listChoice, function(input, key) {
-        if(input.value != '')
-          choices[i].chTitle = input.value;
-      });
       var survey = SurveyManager.getSurvey();
       var user   = SurveyManager.getUser();
+      var choices = [];
+      angular.forEach(listChoice, function(input, key) {
+        if(input.value != '')
+          choices[key] = {"choice" : {"chTitle": input.value.toString() }};
+      });
+
       jsonObj = {
         "survey": survey,
         "user"  : user,
-        "choiceList" : [
-                  {"choice": { "chTitle": "Oui"}},
-                  {"choice": { "chTitle": "NON"}}
-        ]
+        "choiceList" : choices
       };
 
       // if(choices.length > 0)

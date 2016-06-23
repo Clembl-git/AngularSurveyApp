@@ -7,7 +7,6 @@ function ($rootScope, $scope, $http, $location, SurveyManager, Get, toastr) {
   var choices = [];
   var postObj = {};
   $scope.choiceList = {};
-  $rootScope.typeSurvey = SurveyManager.getType();
 
 /*
 {
@@ -57,19 +56,19 @@ function ($rootScope, $scope, $http, $location, SurveyManager, Get, toastr) {
         $scope.survey = {
         "suTitle"               : $scope.inputTitle,
         "suDescription"         : $scope.inputDescription,
-        "suSurveytype"          : $rootScope.typeSurvey.toString(),
+        "suSurveytype"          : $scope.inputTypeSurvey,
         "suExpirationdate"      : strDate,
-        "suIsvoteeditable"      : $scope.bVoteEditable != undefined ? $rootScope.typeSurvey.toString() : '0',
-        "suEmailoncomment"      : $scope.bEmailOnReponse != undefined ? $rootScope.typeSurvey.toString() : '0',
-        "suIsresultpublic"      : $scope.bResultPublic != undefined ? $rootScope.typeSurvey.toString() : '0',
-        "suEmailonparticipation": $scope.bEmailOnParticipe != undefined ? $rootScope.typeSurvey.toString() : '0',
+        "suIsvoteeditable"      : $scope.bVoteEditable != undefined ? $scope.bVoteEditable.toString() : '0',
+        "suEmailoncomment"      : $scope.bEmailOnReponse != undefined ? $scope.bEmailOnReponse.toString() : '0',
+        "suIsresultpublic"      : $scope.bResultPublic != undefined ? $scope.bResultPublic.toString() : '0',
+        "suEmailonparticipation": $scope.bEmailOnParticipe != undefined ? $scope.bEmailOnParticipe.toString() : '0',
         "usIduser"              : "879"
         };
 
         SurveyManager.setSurvey($scope.survey);
 
         console.log($scope.survey);
-        $scope.typeSurvey =   $scope.survey.suSurveytype;
+        $rootScope.typeSurvey =  $scope.inputTypeSurvey;
         $location.path('/creationSuite');
       }
       else {
