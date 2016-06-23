@@ -4,6 +4,9 @@ angular.module('factory', [])
   return {
     createSurvey: function(survey){
         return httpPostRequest($http, 'survey/create', survey);
+    },
+    getSurveyFromMD5 : function(md5) {
+        return httpGetRequest($http, 'survey/getSurvey/', md5);
     }
 }
 })
@@ -31,7 +34,7 @@ angular.module('factory', [])
    }
  });
 
- var baseUrlWS = "http://localhost:8080/Doodle/webresources/";
+ var baseUrlWS = "http://doodle.aschen.ovh:8080/DoodleWebService/webresources/";
 
 /* GET sur la requête passé en paramètre */
 /* Return une promise HTTP, une réponse asynchrone contenant le retour de la requête  */

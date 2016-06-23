@@ -5,7 +5,7 @@ function ($rootScope, $scope,  $http, $routeParams, $location, Get) {
 
     //Get.surveyFromMD5($routeParams.surveyMD5).then(function(obj){
 
-        //  $rootScope.survey = obj;
+          $rootScope.surveyMD5 = $routeParams.surveyMD5;
 
           //idSondage -> vote
           //idRéponse -> edit réponse
