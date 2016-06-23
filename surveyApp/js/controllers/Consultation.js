@@ -3,11 +3,15 @@ angular.module('controllers')
 function ($rootScope, $scope,  $http, $routeParams, $location, Get) {
   console.log("Consult");
 
-  $scope.idSurvey;
+  $scope.survey = $rootScope.actualSurvey.data;
 
-  Get.getSurveyFromMD5('33f397090d58da33169a45c39ea091f9')
-  .then(function(survey){
-    console.log(survey);
-    $scope.actualSurvey = survey;
-  })
+  console.log($scope.survey);
+
+  $scope.titleSurvey = $scope.survey.survey.suDescription;
+  $scope.dateSurvey = $scope.survey.survey.suExpirationdate;
+
+  $scope.listChoice = {};
+
+  $scope.listChoice = $scope.survey.choiceList;
+
 }]);

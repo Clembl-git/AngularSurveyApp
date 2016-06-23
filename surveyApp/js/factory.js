@@ -6,7 +6,7 @@ angular.module('factory', [])
         return httpPostRequest($http, 'survey/create', survey);
     },
     getSurveyFromMD5 : function(md5) {
-        return httpGetRequest($http, 'survey/getSurvey/', md5);
+        return httpGetRequest($http, 'survey/getSurvey/' + md5);
     }
 }
 })
