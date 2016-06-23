@@ -29,11 +29,20 @@ surveyApp.config(['$httpProvider', function ($httpProvider) {
     .when('/home', {
         templateUrl: 'templates/home.html'
       })
+    .when('/creation', {
+        templateUrl: 'templates/creation.html'
+      })
+    .when('/get/:surveyMD5', {
+        templateUrl: 'templates/redirection.html'
+      })
     .when('/result', {
         templateUrl: 'templates/result.html'
       })
-    .when('/creation', {
-        templateUrl: 'templates/creation.html'
+    .when('/admin', {
+        templateUrl: 'templates/admin.html'
+      })
+      .when('/consultation', {
+        templateUrl: 'templates/consultation.html'
       })
     .otherwise({ redirectTo: '/home' });
 }]);

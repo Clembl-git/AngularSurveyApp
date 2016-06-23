@@ -1,5 +1,5 @@
 angular.module('controllers')
-.controller('ResultatCtrl', [ '$scope',  function($scope) {
+.controller('ResultatCtrl', [ '$scope', '$location',  function($scope, $location) {
 
   console.log("ResultatCtrl Called");
   console.log($location.path());
