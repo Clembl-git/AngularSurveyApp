@@ -12,17 +12,22 @@ function ($rootScope, $scope,  $http, $routeParams, $location, Get) {
           console.log("RedirectionCtrl");
           console.log($routeParams.surveyMD5);
 
-          switch ($routeParams.surveyMD5)
-          {
-            case "MD5Admin":
-              $location.path("/admin");
-              break;
-            case "MD5Result":
-              $location.path("/result");
-              break;
-            case "MD5ReadWrite":
-              $location.path("/consultation");
-              break;
-          }
-  //  });
+          Get.getSurveyFromMD5($routeParams.surveyMD5)
+          .then(function(survey){
+            $rootScope.actualSurvey = survey;
+
+
+            /*switch (survey.typeAccess)
+            {
+              case "MD5Admin":
+                $location.path("/admin");
+                break;
+              case "MD5Result":
+                $location.path("/result");
+                break;
+              case "MD5ReadWrite":*/
+                $location.path("/consultation");
+                //break;
+            //}
+          })
 }]);
