@@ -21,9 +21,10 @@ function ($rootScope, $scope,  $http, $routeParams, $location, Get, toastr) {
 
   $scope.listReponse = [];
   angular.forEach($scope.survey.choiceList, function(choice, i) {
-
+    console.log($scope.survey.choiceList);
       Get.listReponses(choice.chIdchoice)
       .then(function(listReponse) {
+        console.log("IN LIST REPONSES");
         console.log(listReponse);
         angular.forEach(listReponse.data, function (response, key)
         {

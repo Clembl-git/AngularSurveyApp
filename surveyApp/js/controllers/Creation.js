@@ -49,38 +49,52 @@ function ($rootScope, $scope, $http, $location, SurveyManager, Get, toastr) {
         var month   = dateExp.getMonth() + 1;
         var strDate = dateExp.getDate() + "/" + month + "/" + dateExp.getFullYear();
 
-        console.log($scope.bResultPublic);
-        console.log($scope.bVoteEditable);
-        console.log($scope.bEmailOnReponse);
-        console.log($scope.bEmailOnParticipe);
+        var strDateToCompare = dateExp.getFullYear() + "-" + month + "-" + dateExp.getDate();
 
-        SurveyManager.setUser({
-          "usName" : $scope.userName,
-          "usEmail": $scope.userMail
-        });
+        var actualDate = new Date();
+        var inputDate = new Date(strDateToCompare);
 
-        if($scope.inputEmailGuest != undefined && $scope.inputEmailGuest.length > 1)
-          SurveyManager.setListContact($scope.inputEmailGuest);
+        console.log(actualDate);
+        console.log(inputDate);
+
+        if (inputDate > actualDate)
+        {
+          console.log($scope.bResultPublic);
+          console.log($scope.bVoteEditable);
+          console.log($scope.bEmailOnReponse);
+          console.log($scope.bEmailOnParticipe);
+
+          SurveyManager.setUser({
+            "usName" : $scope.userName,
+            "usEmail": $scope.userMail
+          });
+
+          if($scope.inputEmailGuest != undefined && $scope.inputEmailGuest.length > 1)
+            SurveyManager.setListContact($scope.inputEmailGuest);
 
 
-        $scope.survey = {
-        "suTitle"               : $scope.inputTitle,
-        "suDescription"         : $scope.inputDescription,
-        "suSurveytype"          : $scope.inputTypeSurvey,
-        "suExpirationdate"      : strDate,
-        "suIsvoteeditable"      : $scope.bVoteEditable != undefined ? $scope.bVoteEditable.toString() : '0',
-        "suEmailoncomment"      : $scope.bEmailOnReponse != undefined ? $scope.bEmailOnReponse.toString() : '0',
-        "suIsresultpublic"      : $scope.bResultPublic != undefined ? $scope.bResultPublic.toString() : '0',
-        "suEmailonparticipation": $scope.bEmailOnParticipe != undefined ? $scope.bEmailOnParticipe.toString() : '0'
-        };
+          $scope.survey = {
+          "suTitle"               : $scope.inputTitle,
+          "suDescription"         : $scope.inputDescription,
+          "suSurveytype"          : $scope.inputTypeSurvey,
+          "suExpirationdate"      : strDate,
+          "suIsvoteeditable"      : $scope.bVoteEditable != undefined ? $scope.bVoteEditable.toString() : '0',
+          "suEmailoncomment"      : $scope.bEmailOnReponse != undefined ? $scope.bEmailOnReponse.toString() : '0',
+          "suIsresultpublic"      : $scope.bResultPublic != undefined ? $scope.bResultPublic.toString() : '0',
+          "suEmailonparticipation": $scope.bEmailOnParticipe != undefined ? $scope.bEmailOnParticipe.toString() : '0'
+          };
 
-        SurveyManager.setSurvey($scope.survey);
+          SurveyManager.setSurvey($scope.survey);
 
-        console.log($scope.survey);
-        $rootScope.typeSurvey =  $scope.inputTypeSurvey;
-        $rootScope.newSurvey = $scope.survey;
-          toastr.success("Vous pouvez maintenant associer des choix à votre sondage","Succès");
-        $location.path('/creationSuite');
+          console.log($scope.survey);
+          $rootScope.typeSurvey =  $scope.inputTypeSurvey;
+          $rootScope.newSurvey = $scope.survey;
+            toastr.success("Vous pouvez maintenant associer des choix à votre sondage","Succès");
+          $location.path('/creationSuite');
+        }
+        else {
+            toastr.error("Veuillez rentrer une date antérieur à la date du jour.", "Erreur");
+        }
       }
       else {
         toastr.error("Votre pseudo, email, le titre, la description et la date d'expiration sont obligatoire","Erreur");
