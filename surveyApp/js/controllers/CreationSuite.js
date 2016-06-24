@@ -43,7 +43,7 @@ angular.module('controllers')
       });
 
       jsonObj = {
-        "survey": survey,
+        "survey": $rootScope.newSurvey,
         "user"  : user,
         "choiceList" : choices,
         "emailGuest" : mails
@@ -55,7 +55,10 @@ angular.module('controllers')
       jsonObj = JSON.stringify(jsonObj);
       console.log(jsonObj);
       Get.createSurvey(jsonObj).then(function(resp) {
+        console.log("createSurvey Response");
         console.log(resp);
+
+        $location.path();
       })
   }
 }]);

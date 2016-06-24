@@ -79,6 +79,7 @@ function ($rootScope, $scope, $http, $location, SurveyManager, Get, toastr) {
 
         console.log($scope.survey);
         $rootScope.typeSurvey =  $scope.inputTypeSurvey;
+        $rootScope.newSurvey = $scope.survey;
           toastr.success("Vous pouvez maintenant associer des choix à votre sondage","Succès");
         $location.path('/creationSuite');
       }
