@@ -201,6 +201,11 @@ button:hover{
     margin-left:-5%;
     margin-top: -1%;
   }
+  .choiceContainer
+  {
+
+    overflow-y: scroll;
+  }
 
 
 
@@ -314,7 +319,10 @@ button:hover{
       color: green;
   }
 
-
+.registerDiv {
+      width: 30%;
+      margin: 0 auto;
+}
 
 
 

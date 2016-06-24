@@ -7,6 +7,12 @@ angular.module('factory', [])
     },
     getSurveyFromMD5 : function(md5) {
         return httpGetRequest($http, 'survey/getSurvey/' + md5);
+    },
+    addResponseToSurvey : function(response){
+        return httpPostRequest($http, 'survey/addReponseToSurvey/', response);
+    },
+    getListResponse : function(idChoice){
+        return httpGetRequest($http, 'choice/listReponse/' + idChoice);
     }
 }
 })

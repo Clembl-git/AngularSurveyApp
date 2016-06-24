@@ -13,33 +13,54 @@
             </div>
         </div>
     </div>
+
+
     <div class="row my_featureRow">
         <div class="col-xs-4 my_feature">
-
         </div>
-
         <div class="col-xs-8 choiceContainer">
-          <div class="col-xs-1 my_feature">
-              Choix
+          <div class="col-xs-4 my_feature" ng-repeat="choice in listChoice" >
+              {{choice.chTitle}}
           </div>
         </div>
     </div>
-    <div class="row my_featureRow">
+
+    <div class="row my_featureRow existingChoice" ng-repeat="c in listChoiceRep track by $index" >
+      {{c}}
         <div class="col-xs-12 col-sm-4 my_feature">
-            Clément
+              {{c.nameParticipant}}
         </div>
         <div class="col-xs-12 col-sm-8">
             <div class="row">
-                <div class="col-xs-4 col-sm-4 my_planFeature my_plan1">
-                    <i class="fa"></i>
-                </div>
-                <div class="col-xs-4 col-sm-4 my_planFeature my_plan2">
-                    <i class="fa fa-check my_check"></i>
-                </div>
-                <div class="col-xs-4 col-sm-4 my_planFeature my_plan3">
-                    <i class="fa fa-check my_check"></i>
+                <div class="col-xs-4 col-sm-4 my_planFeature {{'my_plan'+$index}}" >
+                  c{{c.idChoice}}
+                  choice{{choice.chIdchoice}}
+                    <i ng-if="c.idChoice == choice.chIdchoice" class="fa fa-check my_check" ng-repeat="choice in listChoice">
+
+                          </i>
+
                 </div>
             </div>
         </div>
+    </div>
+
+
+    <div class="row my_featureRow editableChoice">
+        <div class="col-xs-12 col-sm-4 my_feature">
+            <input type="text" name="nameUser"  ng-model="user.name">
+        </div>
+        <div class="col-xs-12 col-sm-8">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 my_planFeature my_plan1" ng-repeat="choice in listChoice track by $index">
+                  <input type="checkbox" class="chkBoxGroup" value="{{choice.chIdchoice}}">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-xs-6 registerDiv">
+      <input type="email" name="editEmail" ng-model="user.email"/>
+      <button class="btn-primary" type="button" name="buttonSave" ng-click="onClickRegister()">Enregistrer</button>
     </div>
 </div>
