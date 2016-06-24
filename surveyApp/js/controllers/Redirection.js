@@ -3,6 +3,10 @@ angular.module('controllers')
 function ($rootScope, $scope,  $http, $routeParams, $location, Get) {
 
 
+    console.log($scope.survey);
+
+
+    angular.foreach
     //Get.surveyFromMD5($routeParams.surveyMD5).then(function(obj){
 
           $rootScope.surveyMD5 = $routeParams.surveyMD5;
@@ -14,6 +18,7 @@ function ($rootScope, $scope,  $http, $routeParams, $location, Get) {
 
           Get.getSurveyFromMD5($routeParams.surveyMD5)
           .then(function(survey){
+            console.log(survey);
             $rootScope.actualSurvey = survey;
 
 
@@ -26,7 +31,7 @@ function ($rootScope, $scope,  $http, $routeParams, $location, Get) {
                 $location.path("/result");
                 break;
               case "MD5ReadWrite":*/
-                $location.path("/consultation");
+                $location.path("/result");
                 //break;
             //}
           })

@@ -3,13 +3,13 @@ angular.module('controllers')
  function ($rootScope, $scope, $http, $location, SurveyManager, Get) {
 
   console.log($rootScope.typeSurvey);
-  
+
   $scope.listControl = [];
-  $scope.listControl.push({title:"",text:"Mardi?"});
-  nbListItem = 3;
+  $scope.listControl.push({text:"Hey"});
+  nbListItem = 0;
 
   $scope.addChoice = function() {
-    $scope.listControl.push({title:'',text:"Saisissez l'option"+nbListItem});
+    $scope.listControl.push({text:"Saisissez l'option"+nbListItem});
     nbListItem++;
   };
 
