@@ -106,8 +106,10 @@ function setlistener() {
     $(this).addClass('check');
 });
 $('.chkBoxGroupEdit').on('change', function() {
-  $('.chkBoxGroupEdit').not(this).prop('checked', false);
+  $('.chkBoxGroupEdit ').not(this).prop('checked', false);
   $(this).removeClass('emptycheck');
   $(this).addClass('check');
 });
+
+
 }

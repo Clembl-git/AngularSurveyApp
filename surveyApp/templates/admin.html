@@ -52,7 +52,7 @@
       <button type="submit" style="width:100%;font-size: 21px;" ng-click="mettreAJour()" class="btn btn-primary">Mettre à jour</button>
     </div>
   </div>
-  
+
   <table style="width:100%">
     <thead>
       <tr>
@@ -69,9 +69,9 @@
                 {{reponse.reNameparticipant}}
         </td>
         <td ng-repeat="choice in survey.choiceList" ng-class=" reponse.chIdchoice == choice.chIdchoice ? 'check' : 'uncheck'" >
-               <input  type="checkbox" class="chkBoxGroupEdit" value="reponse.chIdchoice"
-               ng-checked="reponse.chIdchoice == choice.chIdchoice"
-               ng-click="editResponse(reponse.reIdresponse, reponse.chIdchoice)" />
+               <input  type="checkbox" class="chkBoxGroupEdit editgrp"  value="reponse.chIdchoice"
+               ng-checked="reponse.chIdchoice == choice.chIdchoice" id="groupBox{{reponse.reIdresponse}}"
+               ng-click="editResponse(reponse.reIdresponse, reponse.chIdchoice, reponse.reNameparticipant, reponse.reIdresponse)" />
         </td>
       </tr>
     </tbody>
