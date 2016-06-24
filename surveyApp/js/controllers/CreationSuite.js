@@ -26,13 +26,15 @@ angular.module('controllers')
         if(input.value != '')
           choices[i].chTitle = input.value;
       });
-      $scope.survey = SurveyManager.getSurvey();
+      var survey = SurveyManager.getSurvey();
+      var user   = SurveyManager.getUser();
       jsonObj = {
-        "survey":   $scope.survey,
-        "user"  : {
-          "usName" : "Cléms",
-          "usEmail" : "clems@gmail.com"
-        }
+        "survey": survey,
+        "user"  : user,
+        "choiceList" : [
+                  {"choice": { "chTitle": "Oui"}},
+                  {"choice": { "chTitle": "NON"}}
+        ]
       };
 
       // if(choices.length > 0)

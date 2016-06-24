@@ -20,7 +20,8 @@ angular.module('factory', [])
 .factory('SurveyManager', function() {
    return {
      data:{
-       survey: {}
+       survey : {},
+       user   : {}
      },
      survey:{
        type: 1
@@ -36,6 +37,12 @@ angular.module('factory', [])
      },
      getSurvey: function(){
        return this.data.survey;
+     },
+     setUser: function(user){
+       this.data.user = user;
+     },
+     getUser: function(){
+       return this.data.user;
      }
    }
  });

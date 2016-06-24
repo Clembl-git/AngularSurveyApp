@@ -319,11 +319,18 @@ button:hover{
       color: green;
   }
 
+<<<<<<< HEAD
 .registerDiv {
       width: 30%;
       margin: 0 auto;
 }
 
+=======
+
+.form-control{
+  font-size: 20px;
+}
+>>>>>>> b0d69d0e3d96b4112bd55f6ea037dbaaee1fa372
 
 
 
