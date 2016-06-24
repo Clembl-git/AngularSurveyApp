@@ -39,14 +39,14 @@ angular.module('controllers')
       var choices = [];
       angular.forEach(listChoice, function(input, key) {
         if(input.value != '')
-          choices[key] = {"choice" : {"chTitle": input.value.toString() }};
+          choices[key] =  {"chTitle": input.value.toString() };
       });
 
       jsonObj = {
         "survey": $rootScope.newSurvey,
         "user"  : user,
         "choiceList" : choices,
-        "emailGuest" : mails
+        "guestList" : mails
       };
 
       // if(choices.length > 0)

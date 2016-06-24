@@ -24,7 +24,7 @@
               <i ng-if="reponse.chIdchoice == choice.chIdchoice && !reponse.canEdit" class="fa fa-check my_check ichecked" ></i>
               <input ng-if="reponse.canEdit" type="checkbox" class="chkBoxGroupEdit" value="reponse.chIdchoice"
                ng-checked="reponse.chIdchoice == choice.chIdchoice"
-               ng-click="editResponse(reponse.reIdresponse, reponse.chIdchoice)" />
+               ng-click="editResponse(reponse.reIdresponse, choice.chIdchoice, reponse.reNameparticipant)" />
         </td>
       </tr>
 

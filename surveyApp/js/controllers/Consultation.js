@@ -11,6 +11,8 @@ function ($rootScope, $scope,  $http, $routeParams, $location, Get, toastr) {
     //$scope.survey.idReponse = 17;
     if($scope.survey.idReponse != 0)
       $scope.isInEdition = true;
+
+
     console.log($scope.survey);
     $scope.titleSurvey = $scope.survey.survey.suTitle;
     $scope.dateSurvey = $scope.survey.survey.suExpirationdate;
@@ -48,22 +50,19 @@ function ($rootScope, $scope,  $http, $routeParams, $location, Get, toastr) {
     });
   }
 
-  $scope.editResponse = function(idRep, idChoice){
-    jsonObj = {
-       "reponse": {
-       "reNameparticipant": $scope.user.name,
-       "chIdchoice": {"chIdchoice":idChoice}
-     }
-   };
-
-
-
-      Get.editResponse(idRep, jsonObj).then(function(resp){
-        console.log(resp);
-        toastr.success("Choix modifié","Succès");
-      }, function(){
-        toastr.error("Erreur lors de la sauvegarde du nouveau choix","Erreur");
-      });
+  $scope.editResponse = function(idRep, idChoice, name){
+  var jsonObj = {
+    "chIdchoice": {"chIdchoice":idChoice.toString()},
+    "reIdresponse" : idRep.toString(),
+    "reNameparticipant": name
+  };
+  console.log(jsonObj);
+  Get.editResponse(jsonObj).then(function(resp){
+    console.log(resp);
+    toastr.success("Choix modifié","Succès");
+  }, function(){
+    toastr.error("Erreur lors de la sauvegarde du nouveau choix","Erreur");
+  });
 
   }
 
