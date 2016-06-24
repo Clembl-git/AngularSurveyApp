@@ -57,7 +57,7 @@ function ($rootScope, $scope,  $http, $routeParams, $location, Get, toastr) {
     "reNameparticipant": name
   };
   console.log(jsonObj);
-  Get.editResponse(idRep, jsonObj).then(function(resp){
+  Get.editResponse(jsonObj).then(function(resp){
     console.log(resp);
     toastr.success("Choix modifié","Succès");
   }, function(){

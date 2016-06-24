@@ -14,8 +14,8 @@ angular.module('factory', [])
     addResponseToSurvey : function(response){
         return httpPostRequest($http, 'survey/addReponseToSurvey/', response);
     },
-    editResponse: function(idChoice, response){
-      return httpPutRequest($http, 'choice/'+idChoice, response);
+    editResponse: function(reponse){
+      return httpPostRequest($http, 'responses/editReponse', reponse);
     },
     addResponseToSurvey : function(response){
         return httpPostRequest($http, 'survey/addReponseToSurvey/', response);
