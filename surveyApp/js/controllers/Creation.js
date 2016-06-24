@@ -60,7 +60,7 @@ function ($rootScope, $scope, $http, $location, SurveyManager, Get, toastr) {
         });
 
         if($scope.inputEmailGuest.length > 1)
-          SurveyManager.setContactList(contactList);
+          SurveyManager.setListContact($scope.inputEmailGuest);
 
 
         $scope.survey = {

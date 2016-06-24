@@ -58,7 +58,7 @@ angular.module('factory', [])
        var arrayMails = strMails.split(';');
 
         for(var i = 0 ; i < arrayMails.length; i++) {
-            this.data.listMail.push({"email":partsOfStr[i]})
+            this.data.listMail.push({"email":arrayMails[i]})
         }
      }
    }
