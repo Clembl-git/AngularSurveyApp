@@ -10,15 +10,22 @@ angular.module('factory', [])
     },
     listReponses: function(idChoix) {
       return httpGetRequest($http, 'choice/listReponse/' + idChoix);
+    },
+    addResponseToSurvey : function(response){
+        return httpPostRequest($http, 'survey/addReponseToSurvey/', response);
+    },
+    editResponse: function(idChoice, response){
+      return httpPutRequest($http, 'choice/'+idChoice, response);
     }
-}
+  }
 })
 
 .factory('SurveyManager', function() {
    return {
      data:{
        survey : {},
-       user   : {}
+       user   : {},
+       listMail: []
      },
      survey:{
        type: 1
@@ -40,6 +47,16 @@ angular.module('factory', [])
      },
      getUser: function(){
        return this.data.user;
+     },
+     getListContact(){
+       return this.data.listMail;
+     },
+     setListContact(strMails){
+       var arrayMails = strMails.split(';');
+
+        for(var i = 0 ; i < arrayMails.length; i++) {
+            this.data.listMail.push({"email":partsOfStr[i]})
+        }
      }
    }
  });
@@ -60,14 +77,33 @@ function httpGetRequest($http, request) {
     return $http(req);
  }
 
- function httpPostRequest($http, request, data) {
-   var req = {
-     method: 'POST',
-     url: baseUrlWS +request,
-     headers: {
-       'Content-Type':'application/json'
-     },
-     data: data
-   };
-     return $http(req);
-  }
+  function httpPostRequest($http, request, data) {
+    var req = {
+      method: 'POST',
+      url: baseUrlWS +request,
+      headers: {
+        'Content-Type':'application/json'
+      },
+      data: data
+    };
+      return $http(req);
+   }
+    function httpPutRequest($http, request, data) {
+      var req = {
+        method: 'PUT',
+        url: baseUrlWS +request,
+        headers: {
+          'Content-Type':'application/json'
+        },
+        data: data
+      };
+        return $http(req);
+     }
+
+function loadDatepicker(){
+  setTimeout(function () {
+    $('.datepicker').datepicker({
+      format: 'mm-dd-yyyy'
+    });
+  }, 1000);
+}

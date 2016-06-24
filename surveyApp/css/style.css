@@ -93,7 +93,6 @@ body{
   font-size: 20px !important;
 }
 .btnCreateSurvey, .btnAccessSurvey{
-  background-color: #F4F4F4;
   border: 1px solid rgba(255, 255, 255, 0.59) ;
   padding: 6px;
   font-family: 'Helvetica Neue', Helvetica, Arial;
@@ -101,12 +100,14 @@ body{
   margin-top: 5px ;
   font-size: 20px;
   font-weight: 500;
-  width: 45% ;
-  height: 20%;
+  width: 50% ;
+  height: 70px;
   background: #233B55 ;
   color: #fff;
-  position: absolute;
     line-height: 34px;
+}
+.btnCreateSurvey:hover{
+  opacity: 0.8;
 }
 .creationSuite .itemChoice {
     width: 500px;
@@ -114,17 +115,6 @@ body{
     text-align: center;
     color: black;
     font-size: 21px;
-}
-button:hover{
-  letter-spacing: 2px;
-  border: 5px solid rgba(255,255,255, 0.5);
-}
-
-
-.btnCreateSurvey {
-
-  left: 4%;
-  float: left;
 }
 .btnCreateCenter{
   width: 70%;
@@ -146,8 +136,10 @@ button:hover{
   font-size: 50px;
 }
 .listInput{
-  margin-top:5%;
+  margin-top: 5%;
   margin-bottom: 10px;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 4%;
 }
 .listInput a {
     margin-top: 0%;
@@ -171,6 +163,8 @@ button:hover{
     color: #fff;
     font-weight: 400;
     padding: 5px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 5%;
     top: 40px;
   }
    .bar .title {
@@ -254,57 +248,53 @@ button:hover{
   .my_featureRow {
       margin-top: 0.2em;
       margin-bottom: 0.2em;
-      border: 0.1em solid rgb(163, 163, 163);
   }
 
-  /* --- Plan 1 --------------------------- */
-  .my_plan1 {
-      background: rgb(224,234,242);
+table{
+  background-color: rgba(255, 255, 255, 0.14);
+  border: 2px solid rgba(255, 255, 255, 0.14);
+}
+th{
+  padding: 3%;
+  text-align: center;
+}
+td{
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #fff;
+}
+
+.check{
+  background-color :rgba(76, 175, 80, 0.55);
+}
+.uncheck{
+  background-color : rgba(255, 17, 0, 0.23);
+}
+.emptycheck{
+  background-color: rgba(208, 227, 251, 0.69);
+}
+.registerDiv{
+    margin-top: 26px;
+    height: 50px;
+    width:100%;
+    margin-top:20px;
+}
+
+.chkBoxGroup, .chkBoxGroupEdit, .ichecked{
+
+    height: 20px;
+    width: 20px;
   }
-
-  .my_planHeader.my_plan1 a {
-      background: rgb(72, 109, 139);
-      color:white;
-  }
-
-  .my_planHeader.my_plan1 {
-      background: rgb(105, 153, 193);
-      border-bottom: thick solid rgb(72, 109, 139);
-  }
-
-  /* --- Plan 2 --------------------------- */
-  .my_plan2 {
-      background: rgb(230,235,218);
-  }
-
-  .my_planHeader.my_plan2 a {
-      background: rgb(108, 131, 62);
-      color:white;
-  }
-
-  .my_planHeader.my_plan2 {
-      background: rgb(134, 162, 77);
-      border-bottom: thick solid rgb(108, 131, 62);
-  }
-
-  /* --- Plan 3 --------------------------- */
-  .my_plan3 {
-      background: rgb(254,235,212);
-  }
-
-  .my_planHeader.my_plan3 a {
-      background: rgb(199, 127, 40);
-      color:white;
-  }
-
-  .my_planHeader.my_plan3 {
-      background: rgb(253, 161, 49);
-      border-bottom: thick solid rgb(199, 127, 40);
-  }
-
-
-
-
+.emailregister{
+    text-align: center;
+    color: rgb(0, 0, 0);
+    width: 50%;
+    margin-left: 15%;
+}
+.btnRegister{
+  width:20%;
+  padding:3px;
+}
   .my_planFeature {
       text-align: center;
       font-size: 2em;
@@ -315,9 +305,7 @@ button:hover{
   }
 
 
-.form-control{
-  font-size: 20px;
-}
+
 
 
 

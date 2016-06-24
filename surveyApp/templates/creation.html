@@ -1,4 +1,4 @@
-<div class="container" ng-controller="CreationController" >
+<div class="container" ng-controller="CreationController" class="fade">
       <div class="centerDiv row col-sm-12 col-md-offset-1" style="visibility: visible;">
         <h1 class="mainTitle"></h1>
 
@@ -29,7 +29,7 @@
         <div class="form-group creationInput row">
           <label for="inputPassword3" class="col-sm-3 createLabel"  >Date Expiration</label>
           <div class="col-sm-6">
-            <input type="date" class="form-control" ng-model="inputDateExpiration"  style="color:#000;width:100%" />
+            <input type="datepicker" class="form-control datepicker" ng-enter="loadDatepicker()" ng-model="inputDateExpiration"  style="color:#000;width:100%" />
 
           </div>
         </div>
@@ -77,6 +77,14 @@
             </div>
           </div>
         </div>
+
+        <div class="form-group creationInput row">
+          <label for="inputPassword3" class="col-sm-3 createLabel">Emails de contacts a inviter a voter</label>
+          <div class="col-sm-6">
+            <textarea  class="form-control"   placeholder="Séparateur ->  ;"   ng-model="inputEmailGuest"></textarea>
+          </div>
+        </div>
+
         <div class="form-group creationInput row">
           <div class="col-sm-9">
             <button type="submit" style="width:100%;font-size: 21px;" ng-click="creationSuite()" class="btn btn-primary">Create</button>

@@ -44,5 +44,8 @@ surveyApp.config(['$httpProvider', function ($httpProvider) {
       .when('/consultation', {
         templateUrl: 'templates/consultation.html'
       })
+      .when('/edition', {
+        templateUrl: 'templates/edition.html'
+      })
     .otherwise({ redirectTo: '/home' });
 }]);

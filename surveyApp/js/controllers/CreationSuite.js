@@ -4,13 +4,19 @@ angular.module('controllers')
 
   console.log($rootScope.typeSurvey);
 
+
   $scope.listControl = [];
   $scope.listControl.push({text:"Hey"});
   nbListItem = 0;
+   loadDatepicker();
+
+
 
   $scope.addChoice = function() {
     $scope.listControl.push({text:"Saisissez l'option"+nbListItem});
     nbListItem++;
+      loadDatepicker();
+
   };
 
   $scope.removeChoice = function() {
@@ -27,6 +33,8 @@ angular.module('controllers')
 
       var survey = SurveyManager.getSurvey();
       var user   = SurveyManager.getUser();
+      var mails  = SurveyManager.getListContact();
+
       var choices = [];
       angular.forEach(listChoice, function(input, key) {
         if(input.value != '')
@@ -36,7 +44,8 @@ angular.module('controllers')
       jsonObj = {
         "survey": survey,
         "user"  : user,
-        "choiceList" : choices
+        "choiceList" : choices,
+        "emailGuest" : mails
       };
 
       // if(choices.length > 0)

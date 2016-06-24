@@ -6,7 +6,7 @@ angular.module('controllers')
 
 
 
-  var survey = $rootScope.actualSurvey.data;
+  var survey = $rootScope.surveyFromMD5;
   console.log(survey.choiceList);
   console.log(survey.choiceList.length);
 
@@ -23,7 +23,6 @@ angular.module('controllers')
 
      $scope.graph.series.push(choice.chTitle)
       $scope.graph.labels.push(choice.chTitle)
-      console.log(choice.chIdchoice);
       Get.listReponses(choice.chIdchoice).then(function(listRep)
       {
         console.log("listRep");

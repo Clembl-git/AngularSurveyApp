@@ -1,45 +1,51 @@
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
-<div class="container" ng-controller="ConsultationControleur">
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="row">
-                <div class="col-xs-6 my_planHeader my_plan1">
-                    <div class="my_planTitle">{{titleSurvey}}</div>
-                </div>
-                <div class="col-xs-6 my_planHeader my_plan2">
-                    <div class="my_planTitle">{{dateSurvey}}</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row my_featureRow">
-        <div class="col-xs-4 my_feature">
+<div class="container" ng-controller="ConsultationControleur" class="fade">
 
-        </div>
 
-        <div class="col-xs-8 choiceContainer">
-          <div class="col-xs-1 my_feature">
-              Choix
-          </div>
-        </div>
-    </div>
-    <div class="row my_featureRow">
-        <div class="col-xs-12 col-sm-4 my_feature">
-            Clément
-        </div>
-        <div class="col-xs-12 col-sm-8">
-            <div class="row">
-                <div class="col-xs-4 col-sm-4 my_planFeature my_plan1">
-                    <i class="fa"></i>
-                </div>
-                <div class="col-xs-4 col-sm-4 my_planFeature my_plan2">
-                    <i class="fa fa-check my_check"></i>
-                </div>
-                <div class="col-xs-4 col-sm-4 my_planFeature my_plan3">
-                    <i class="fa fa-check my_check"></i>
-                </div>
-            </div>
-        </div>
+          <h1 style="width:100%;text-align:center">{{titleSurvey}}</h1>
+          <h2  style="width:100%;text-align:center" >Sondage du {{dateSurvey}}</h2>
+  <table style="width:100%">
+    <thead>
+      <tr>
+        <th width="30%">
+        </th>
+        <th  ng-repeat="choice in listChoice track by $index">
+          {{choice.chTitle}}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="reponse in listReponse" >
+        <td width="30%">
+                {{reponse.reNameparticipant}}
+        </td>
+        <td ng-repeat="choice in listChoice" ng-class=" reponse.chIdchoice == choice.chIdchoice ? 'check' : 'uncheck'" >
+              <i ng-if="reponse.chIdchoice == choice.chIdchoice && !reponse.canEdit" class="fa fa-check my_check ichecked" ></i>
+              <input ng-if="reponse.canEdit" type="checkbox" class="chkBoxGroupEdit" value="reponse.chIdchoice"
+               ng-checked="reponse.chIdchoice == choice.chIdchoice"
+               ng-click="editResponse(reponse.reIdresponse, reponse.chIdchoice)" />
+        </td>
+      </tr>
+
+      <tr ng-if="!isInEdition">
+        <td>
+          <input type="text" name="nameUser"  placeholder="Saissez votre nom pour voter"
+                 style="text-align:center;color:#000;width:100%;"
+                 ng-model="user.name" ng-change="enableChkbox()"
+           />
+        </td>
+        <td ng-repeat="choice in listChoice track by $index" class="emptycheck">
+            <input type="checkbox" class="chkBoxGroup "value="{{choice.chIdchoice}}" disabled="true">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+    <div class="registerDiv" ng-if="user.name.length > 0 && !isInEdition">
+      <input type="email" name="editEmail" class="emailregister" placeholder="Saisissez votre mail pour enregistrer" ng-model="user.email"/>
+      <button class="btn-primary btnRegister" type="button" name="buttonSave" ng-click="onClickRegister()">Enregistrer</button>
     </div>
 </div>

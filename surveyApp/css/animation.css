@@ -1,0 +1,23 @@
+body{
+      transition:0.4s linear all;
+}
+/* slide in from the bottom */
+@keyframes slideInUp {
+    from    { transform:translateY(100%); }
+    to      { transform: translateY(0); }
+}
+
+.fade.ng-enter.ng-enter-active {
+ transition:0.6s linear all;
+    animation: slideInUp 2s both ease-in;
+}
+.ng-enter           { animation: slideInUp 0.2s both ease-in; z-index: 8888; }
+.fade.ng-enter {
+  transition:0.5s linear all;
+  opacity:0;
+}
+
+/* The finishing CSS styles for the enter animation */
+.fade.ng-enter.ng-enter-active {
+  opacity:1;
+}

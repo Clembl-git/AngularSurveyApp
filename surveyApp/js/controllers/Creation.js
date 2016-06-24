@@ -2,6 +2,8 @@ angular.module('controllers')
 .controller('CreationController', ['$rootScope','$scope','$http','$location','SurveyManager','Get', 'toastr',
 function ($rootScope, $scope, $http, $location, SurveyManager, Get, toastr) {
 
+  loadDatepicker();
+
   console.log("CreationController Called");
   $scope.survey = {};
   var choices = [];
@@ -21,6 +23,11 @@ function ($rootScope, $scope, $http, $location, SurveyManager, Get, toastr) {
 		"suExpirationdate": "28-05-2016",
 		"usIduser": "1"
 	},
+  "emailGuest" : [
+  "email": "email1@com.com",
+  "email": "email1@com.com",
+  "email": "email1@com.com"
+]
 	"user": {
 		"usName": "BIpBIP",
 		"usEmail": "EMAIL@BIPBiP"
@@ -52,6 +59,9 @@ function ($rootScope, $scope, $http, $location, SurveyManager, Get, toastr) {
           "usEmail": $scope.userMail
         });
 
+        if($scope.inputEmailGuest.length > 1)
+          SurveyManager.setContactList(contactList);
+
 
         $scope.survey = {
         "suTitle"               : $scope.inputTitle,
@@ -69,10 +79,11 @@ function ($rootScope, $scope, $http, $location, SurveyManager, Get, toastr) {
 
         console.log($scope.survey);
         $rootScope.typeSurvey =  $scope.inputTypeSurvey;
+          toastr.success("Vous pouvez maintenant associer des choix à votre sondage","Succès");
         $location.path('/creationSuite');
       }
       else {
-        toastr.error("Le titre, la description et la date d'expiration sont obligatoire","Erreur");
+        toastr.error("Votre pseudo, email, le titre, la description et la date d'expiration sont obligatoire","Erreur");
       }
     }
     else {
