@@ -25,9 +25,6 @@ function ($rootScope, $scope,  $http, $routeParams, $location, Get, toastr) {
               case "4":
                 $location.path("/result");
                 break;
-              case "5":
-                $location.path("/result");
-                break;
             }
           }, function(err) {
             toastr.error("Aucun sondage ne correspondant à votre lien privé n'existe","Désolé");

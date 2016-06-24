@@ -56,9 +56,9 @@ angular.module('factory', [])
      },
      setListContact(strMails){
        var arrayMails = strMails.split(';');
-
         for(var i = 0 ; i < arrayMails.length; i++) {
-            this.data.listMail.push({"email":arrayMails[i]})
+          //A TESTER
+            this.data.listMail.push(arrayMails[i]);
         }
      }
    }
