@@ -16,6 +16,9 @@ angular.module('factory', [])
     },
     editResponse: function(idChoice, response){
       return httpPutRequest($http, 'choice/'+idChoice, response);
+    },
+    addResponseToSurvey : function(response){
+        return httpPostRequest($http, 'survey/addReponseToSurvey/', response);
     }
   }
 })

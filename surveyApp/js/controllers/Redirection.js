@@ -10,6 +10,7 @@ function ($rootScope, $scope,  $http, $routeParams, $location, Get, toastr) {
 
             $rootScope.surveyFromMD5 = survey.data;
             console.log("TYPE : "+survey.data.typeLink);
+            console.log($rootScope.surveyFromMD5);
             switch (survey.data.typeLink)
             {
               case "1":
