@@ -32,8 +32,7 @@
         <td>
           <input type="text" name="nameUser"  placeholder="Saissez votre nom pour voter"
                  style="text-align:center;color:#000;width:100%;"
-                 ng-model="user.name" ng-change="enableChkbox()"
-           />
+                 ng-model="user.name" ng-change="enableChkbox()"          />
         </td>
         <td ng-repeat="choice in listChoice track by $index" class="emptycheck">
             <input type="checkbox" class="chkBoxGroup "value="{{choice.chIdchoice}}" disabled="true">
@@ -44,8 +43,9 @@
 
 
 
-    <div class="registerDiv" ng-if="user.name.length > 0 && !isInEdition">
-      <input type="email" name="editEmail" class="emailregister" placeholder="Saisissez votre mail pour enregistrer" ng-model="user.email"/>
+    <div class="registerDiv" ng-if="user.name.length > 0 && !isInEdition && canEdit">
+      <input type="email" name="editEmail" class="emailregister" ng-if="canEdit" placeholder="Saisissez votre mail pour enregistrer" ng-model="user.email"/>
       <button class="btn-primary btnRegister" type="button" name="buttonSave" ng-click="onClickRegister()">Enregistrer</button>
     </div>
+    <h2 ng-if="!canEdit">Vous ne pouvez pas editer ce sondage.</h2>
 </div>

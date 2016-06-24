@@ -9,6 +9,7 @@ angular.module('controllers')
   var survey = $rootScope.surveyFromMD5;
   if(survey == undefined)
     $location.path('/home')
+ 
   console.log(survey.choiceList);
   console.log(survey.choiceList.length);
 

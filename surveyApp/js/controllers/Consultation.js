@@ -9,8 +9,17 @@ function ($rootScope, $scope,  $http, $routeParams, $location, Get, toastr) {
   if($scope.survey != undefined) {
 
     //$scope.survey.idReponse = 17;
-    if($scope.survey.idReponse != 0)
+    if($scope.survey.idReponse != 0) {
       $scope.isInEdition = true;
+      console.log("in edition");
+    } else {
+      console.log("not editing");
+    }
+    if($scope.survey.suIsvoteeditable == 0)
+      $scope.canEdit = false;
+    else {
+      $scope.canEdit = true;
+    }
 
 
     console.log($scope.survey);
@@ -34,6 +43,8 @@ function ($rootScope, $scope,  $http, $routeParams, $location, Get, toastr) {
 
         Get.listReponses(choice.chIdchoice)
         .then(function(listReponse) {
+          console.log("listReponse");
+          console.log(listReponse);
           angular.forEach(listReponse.data, function (response, key)
           {
             response.chIdchoice = response.chIdchoice.chIdchoice;

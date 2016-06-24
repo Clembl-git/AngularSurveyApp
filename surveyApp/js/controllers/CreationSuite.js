@@ -35,6 +35,7 @@ angular.module('controllers')
 
       var user   = SurveyManager.getUser();
       var mails  = SurveyManager.getListContact();
+      var survey  = SurveyManager.getSurvey();
 
       var choices = [];
       angular.forEach(listChoice, function(input, key) {
