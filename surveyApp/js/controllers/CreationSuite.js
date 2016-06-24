@@ -4,6 +4,8 @@ angular.module('controllers')
 
   console.log($rootScope.typeSurvey);
 
+  if($rootScope.typeSurvey == undefined)
+    $location.path('/creation');
 
   $scope.listControl = [];
   $scope.listControl.push({text:"Hey"});
@@ -31,7 +33,6 @@ angular.module('controllers')
 
       var listChoice = document.getElementsByClassName("itemChoice");
 
-      var survey = SurveyManager.getSurvey();
       var user   = SurveyManager.getUser();
       var mails  = SurveyManager.getListContact();
 

@@ -59,7 +59,7 @@ function ($rootScope, $scope, $http, $location, SurveyManager, Get, toastr) {
           "usEmail": $scope.userMail
         });
 
-        if($scope.inputEmailGuest.length > 1)
+        if($scope.inputEmailGuest != undefined && $scope.inputEmailGuest.length > 1)
           SurveyManager.setListContact($scope.inputEmailGuest);
 
 
